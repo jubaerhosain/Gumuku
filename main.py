@@ -112,6 +112,11 @@ class GomokuBoard(QMainWindow):
             self.current_player_label.setText("You Won!!")
             self.game_ended()
             return
+        
+        if self.game.is_draw():
+            self.current_player_label.setText("Game is draw!!")
+            self.game_ended()
+            return
 
         self.current_player = 'O'
         self.current_player_label.setText("AI is moving...")
@@ -138,6 +143,11 @@ class GomokuBoard(QMainWindow):
 
         if self.game.is_won(self.game.AI_MARKER):
             self.current_player_label.setText("AI Won!!")
+            self.game_ended()
+            return
+        
+        if self.game.is_draw():
+            self.current_player_label.setText("Game is draw!!")
             self.game_ended()
             return
 
