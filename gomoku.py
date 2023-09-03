@@ -168,13 +168,11 @@ class Gomoku:
         
         # find winning pos for ai for last move
         best_move = self.__is_won_for_last_move(self.AI_MARKER)
-        print("best ai: ", best_move)
         if best_move:
             return best_move
          
         # find winning pos for player for last move
         best_move = self.__is_won_for_last_move(self.PLAYER_MARKER)
-        print("best player: ", best_move)
         if best_move:
             return best_move
         
