@@ -164,7 +164,7 @@ class Gomoku:
         return False
 
     def get_ai_move(self) -> Point:
-        # is there any way to adding thread (using all cpu)??
+        # should i use threading to improve time complexity ??
         
         # find winning pos for ai for last move
         best_move = self.__is_won_for_last_move(self.AI_MARKER)
@@ -187,19 +187,13 @@ class Gomoku:
             for point in self.__get_available_moves_1():
                 return point
             
-        print(self.iteration, _)
+        # print(self.iteration, _)
         return best_move
 
 
 if __name__ == "__main__":
     gumuku = Gomoku(10, 5)
     current_player = gumuku.PLAYER_MARKER
-    
-    # gumuku.board[5][5] = 1
-    
-    # pts = gumuku._Gumuku__get_available_moves_1()
-    # for pt in pts:
-    #     print(pt.x, pt.y)
 
     gumuku.print_board()
 
