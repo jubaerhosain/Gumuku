@@ -153,16 +153,41 @@ class Gomoku:
             self.board[current_move.x][current_move.y] = self.EMPTY_MARKER
 
         return best_move, best_score
+    
+    def __is_won_for_last_move(self, player):
+        for move in self.__get_available_moves_1():
+            self.board[move.x][move.y] = player
+            if self.is_won(player):
+                self.board[move.x][move.y] = self.EMPTY_MARKER
+                return move
+            self.board[move.x][move.y] = self.EMPTY_MARKER 
+        return False
 
     def get_ai_move(self) -> Point:
+        # is there any way to adding thread (using all cpu)??
+        
+        # find winning pos for ai for last move
+        best_move = self.__is_won_for_last_move(self.AI_MARKER)
+        print("best ai: ", best_move)
+        if best_move:
+            return best_move
+         
+        # find winning pos for player for last move
+        best_move = self.__is_won_for_last_move(self.PLAYER_MARKER)
+        print("best player: ", best_move)
+        if best_move:
+            return best_move
+        
         self.iteration = 0
         best_move, _ = self.__minimax_alpha_beta_pruning(
             self.AI_MARKER, 0, -self.inf, self.inf)
+        
+        # find best possible move manually
         if best_move.x == -1 and best_move.y == -1:
             for point in self.__get_available_moves_1():
                 return point
             
-        print(self.iteration)
+        print(self.iteration, _)
         return best_move
 
 

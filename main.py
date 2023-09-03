@@ -130,9 +130,6 @@ class GomokuBoard(QMainWindow):
         self.game.reset_game()
 
     def ai_move(self):
-        # find winning pos for ai for last move
-        # find winning pos for player for last move
-        
         self.timer.stop()
         pos = self.game.get_ai_move()
         self.buttons[pos.x][pos.y].setStyleSheet(
