@@ -167,7 +167,7 @@ class Gomoku:
 
 
 if __name__ == "__main__":
-    gumuku = Gumuku(10, 5)
+    gumuku = Gomoku(10, 5)
     current_player = gumuku.PLAYER_MARKER
     
     # gumuku.board[5][5] = 1

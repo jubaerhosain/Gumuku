@@ -58,11 +58,19 @@ class GomokuBoard(QMainWindow):
     def createRightPanel(self):
         right_widget = QWidget()
         new_game_button = QPushButton("New Game")
-        self.current_player_label = QPushButton("Current Player: You")
+        self.current_player_label = QPushButton("Your Move")
+        self.current_player_label.setDisabled(True)
+        your_color = QPushButton("You: Green")
+        your_color.setDisabled(True)
+        ai_color = QPushButton("AI: Red")
+        ai_color.setDisabled(True)
+        
         button_height = 40
         button_width = 200
         new_game_button.setFixedSize(button_width, button_height)
         self.current_player_label.setFixedSize(button_width, button_height)
+        your_color.setFixedSize(button_width, button_height)
+        ai_color.setFixedSize(button_width, button_height)
         new_game_button.setStyleSheet(
             "QPushButton { background-color: #4CAF50; color: white; font-size: 18px; text-align: center; }"
             "QPushButton:hover { background-color: #45a049; }"
@@ -70,10 +78,18 @@ class GomokuBoard(QMainWindow):
         self.current_player_label.setStyleSheet(
             "QPushButton { background-color: #2196F3; color: white; font-size: 18px; text-align: center; }"
         )
+        your_color.setStyleSheet(
+            "QPushButton { background-color: green; color: white; font-size: 18px; text-align: center; }"
+        )
+        ai_color.setStyleSheet(
+            "QPushButton { background-color: red; color: white; font-size: 18px; text-align: center; }"
+        )
         new_game_button.clicked.connect(self.newGame)
         right_layout = QVBoxLayout()
         right_layout.addWidget(new_game_button)
         right_layout.addWidget(self.current_player_label)
+        right_layout.addWidget(your_color)
+        right_layout.addWidget(ai_color)
         right_layout.setSpacing(10)
         right_layout.setAlignment(Qt.AlignHCenter)
         right_widget.setLayout(right_layout)
@@ -98,7 +114,7 @@ class GomokuBoard(QMainWindow):
             return
 
         self.current_player = 'O'
-        self.current_player_label.setText("Current Player: AI")
+        self.current_player_label.setText("AI is moving...")
 
         self.timer.start(1000)
 
@@ -110,7 +126,7 @@ class GomokuBoard(QMainWindow):
                 self.buttons[i][j].setEnabled(True)
 
         self.current_player = 'X'
-        self.current_player_label.setText("Current Player: You")
+        self.current_player_label.setText("Your Move")
         self.game.reset_game()
 
     def ai_move(self):
@@ -129,7 +145,7 @@ class GomokuBoard(QMainWindow):
             return
 
         self.current_player = 'X'
-        self.current_player_label.setText("Current Player: You")
+        self.current_player_label.setText("Your Move")
 
     def game_ended(self):
         for i in range(self.game.board_size):
