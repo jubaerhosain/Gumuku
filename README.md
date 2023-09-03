@@ -14,4 +14,24 @@ To play the game, you'll need to have Python 3 installed on your system. If you 
 
 Clone this repository to your local machine using Git:
 
-```git clone https://github.com/yourusername/your-gomoku-game.git```
+```git clone https://github.com/jubaerhosain/gomoku.git```
+
+### Install Dependencies
+
+Navigate to the project directory:
+
+```cd gomoku```
+
+Install the game's dependencies using the requirements.txt file:
+
+```pip3 install -r requirements.txt```
+
+## Running the Game
+
+Once you have Python 3 and the dependencies installed, you can run the Gomoku game:
+
+```python3 gomoku.py```
+
+## How to Play
+1. To make a move, click on an empty cell on the game board.
+2. The game alternates between the two players(You and AI), and the goal is to get five stones in a row before your opponent does.
