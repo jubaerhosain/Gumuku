@@ -1,7 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout
 from PyQt5.QtWidgets import QGridLayout, QDesktopWidget, QHBoxLayout, QPushButton
-from PyQt5.QtGui import QColor
 from PyQt5.QtCore import Qt, QTimer
 
 from gomoku import Gomoku, Point

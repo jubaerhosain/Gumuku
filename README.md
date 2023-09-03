@@ -4,7 +4,7 @@
 
 This is a simple 10x10 Gomoku (also known as Five in a Row) game implemented in Python 3 using the PyQt5 library. Gomoku is a two-player strategy board game where the objective is to be the first to get five of your stones in a row, horizontally, vertically, or diagonally.
 
-![Gomoku Screenshot](images/gomoku_board.png)
+![Gomoku Screenshot](images/gomoku.png)
 
 ## Installation
 
