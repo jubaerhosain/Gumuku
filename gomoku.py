@@ -124,7 +124,7 @@ class Gomoku:
         elif self.__is_board_full():
             return best_move, 0
         
-        if (depth >= 4):
+        if (depth >= 5):
             # print(depth)
             return best_move, 0
 
